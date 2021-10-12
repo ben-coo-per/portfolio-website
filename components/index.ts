@@ -5,3 +5,4 @@ export { Container, DisplayGrid } from "./Container";
 export { PageTitle, BodyText } from "./TextComponents";
 
 export { ProjectCard, MainImage, CategoryIndicator } from "./ProjectCard";
+export { WorkCategorySelectionRow } from "./WorkCategorySelection";

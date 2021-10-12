@@ -16,10 +16,10 @@ export interface Category {
 }
 
 export type CategoryTitleOptions =
-  | "product"
-  | "digital"
-  | "furniture"
-  | "experimental";
+  | "Product"
+  | "Digital"
+  | "Furniture"
+  | "Experimental";
 
 export type Image = {
   asset: {

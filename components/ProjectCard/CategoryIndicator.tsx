@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CategoryTitleOptions } from "types/projects";
+import { CategoryTitleOptions } from "features/projects";
 import getCategoryColor from "utils/categoryColorMapper";
 
 const RoundedRect = styled.div`
@@ -18,6 +18,5 @@ export const CategoryIndicator = ({
 }: {
   category: CategoryTitleOptions;
 }) => {
-  console.log(getCategoryColor(category));
-  return <RoundedRect color={getCategoryColor(category)}></RoundedRect>;
+  return <RoundedRect color={getCategoryColor(category)} />;
 };

@@ -1,14 +1,13 @@
-import { CategoryTitleOptions } from "types/projects";
+import { CategoryTitleOptions } from "features/projects";
 
 export default function getCategoryColor(category: CategoryTitleOptions) {
-  console.log(category);
   if (category.toLowerCase() === "product") {
     return "orange";
   }
   if (category.toLowerCase() === "digital") {
     return "blue";
   }
-  if (category.toLowerCase() === "experimental") {
+  if (category.toLowerCase() === "experiment") {
     return "green";
   }
   if (category.toLowerCase() === "furniture") {
