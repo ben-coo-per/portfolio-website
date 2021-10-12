@@ -22,6 +22,16 @@ export const myWorkSlice = createSlice({
       state.selectedCategories = action.payload;
     },
 
+    addCategory: (state, action: PayloadAction<Category>) => {
+      state.selectedCategories = [...state.selectedCategories, action.payload];
+    },
+
+    removeCategory: (state, action: PayloadAction<Category>) => {
+      state.selectedCategories = state.selectedCategories.filter(
+        (category) => category._id !== action.payload._id
+      );
+    },
+
     toggleCategory: (state, action: PayloadAction<Category>) => {
       if (state.selectedCategories.includes(action.payload)) {
         state.selectedCategories = state.selectedCategories.filter(
@@ -37,7 +47,12 @@ export const myWorkSlice = createSlice({
   },
 });
 
-export const { hydrateCategories, toggleCategory } = myWorkSlice.actions;
+export const {
+  hydrateCategories,
+  addCategory,
+  removeCategory,
+  toggleCategory,
+} = myWorkSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectSelectedCategories = (state: RootState) =>

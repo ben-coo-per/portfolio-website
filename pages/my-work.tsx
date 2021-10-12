@@ -27,6 +27,7 @@ export default function Home({ projects, categories }: MyWorkProps) {
   const selectedCategories = useSelector(selectSelectedCategories);
   const dispatch = useDispatch();
   useEffect(() => {
+    console.log("useEffect called");
     dispatch(hydrateCategories(categories));
   }, []);
 
