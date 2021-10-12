@@ -11,11 +11,15 @@ export interface Project {
 }
 
 export interface Category {
-  primaryColor: string;
-  secondaryColor: string;
-  title: string;
+  title: CategoryTitleOptions;
   _id: string;
 }
+
+export type CategoryTitleOptions =
+  | "product"
+  | "digital"
+  | "furniture"
+  | "experimental";
 
 export type Image = {
   asset: {

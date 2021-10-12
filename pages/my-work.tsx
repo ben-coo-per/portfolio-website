@@ -18,11 +18,6 @@ interface MyWorkProps {
   categories: Category[];
 }
 
-const Foo = styled.div`
-  background-color: green;
-  height: 200px;
-`;
-
 export default function Home({ projects, categories }: MyWorkProps) {
   return (
     <>

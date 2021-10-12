@@ -75,7 +75,7 @@ export const ProjectCard = ({ project }: { project: Partial<Project> }) => {
       <UpperDetails>
         <CategoriesRow>
           {project.categories?.map((category) => (
-            <CategoryIndicator color={category.primaryColor} />
+            <CategoryIndicator category={category.title} key={category.title} />
           ))}
         </CategoriesRow>
         <ProjectYears>{project.years}</ProjectYears>
