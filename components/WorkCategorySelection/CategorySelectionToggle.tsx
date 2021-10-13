@@ -6,7 +6,8 @@ import {
   addCategory,
   removeCategory,
   selectSelectedCategories,
-  toggleCategory,
+  selectCategory,
+  unSelectCategory,
 } from "features/workSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -33,16 +34,23 @@ const Toggle = styled.button`
   border: ${(props) => `1px solid ${props.theme[props.color].normal}`};
 `;
 
-export const CategoryToggle = ({ category }: { category: Category }) => {
+export const CategoryToggle = ({
+  category,
+  numCategories,
+}: {
+  category: Category;
+  numCategories: number;
+}) => {
   const selectedCategories: Category[] = useSelector(selectSelectedCategories);
   let isSelected = selectedCategories.includes(category);
   const dispatch = useDispatch();
   const color = getCategoryColor(category.title);
+
   function handleToggle() {
     if (isSelected) {
-      dispatch(removeCategory(category));
+      dispatch(unSelectCategory());
     } else {
-      dispatch(addCategory(category));
+      dispatch(selectCategory(category));
     }
   }
   return (

@@ -5,11 +5,13 @@ import type { RootState } from "./store";
 // Define a type for the slice state
 interface MyWorkState {
   selectedCategories: Category[];
+  allCategories: Category[];
 }
 
 // Define the initial state using that type
 const initialState: MyWorkState = {
   selectedCategories: [],
+  allCategories: [],
 };
 
 export const myWorkSlice = createSlice({
@@ -19,7 +21,7 @@ export const myWorkSlice = createSlice({
   reducers: {
     // Use the PayloadAction type to declare the contents of `action.payload`
     hydrateCategories: (state, action: PayloadAction<Category[]>) => {
-      state.selectedCategories = action.payload;
+      state.allCategories = action.payload;
     },
 
     addCategory: (state, action: PayloadAction<Category>) => {
@@ -32,17 +34,15 @@ export const myWorkSlice = createSlice({
       );
     },
 
-    toggleCategory: (state, action: PayloadAction<Category>) => {
-      if (state.selectedCategories.includes(action.payload)) {
-        state.selectedCategories = state.selectedCategories.filter(
-          (category) => category._id !== action.payload._id
-        );
-      } else {
-        state.selectedCategories = [
-          ...state.selectedCategories,
-          action.payload,
-        ];
-      }
+    // Selects ONLY the category provided
+    selectCategory: (state, action: PayloadAction<Category>) => {
+      state.selectedCategories = state.allCategories.filter(
+        (category) => category._id == action.payload._id
+      );
+    },
+
+    unSelectCategory: (state) => {
+      state.selectedCategories = [];
     },
   },
 });
@@ -51,7 +51,8 @@ export const {
   hydrateCategories,
   addCategory,
   removeCategory,
-  toggleCategory,
+  selectCategory,
+  unSelectCategory,
 } = myWorkSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type

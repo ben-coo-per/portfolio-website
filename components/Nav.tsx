@@ -44,7 +44,7 @@ const NavLinks = styled.div`
 `;
 
 const NavLink = styled.a`
-  margin: 0px 48px;
+  margin: 0px 32px;
   font-family: "Indie Flower", "Raleway", "Open Sans", sans-serif;
   font-size: 20px;
   text-decoration: none;

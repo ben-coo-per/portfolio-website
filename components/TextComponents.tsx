@@ -13,7 +13,7 @@ export const PageTitle = styled.h1`
 
   grid-column: 1 / span 12;
 
-  color: #373f47;
+  color: ${(props) => props.theme.subtleText};
 `;
 
 export const BodyText = styled.p`
@@ -24,5 +24,5 @@ export const BodyText = styled.p`
   line-height: 180%;
   margin: 0;
 
-  color: #000000;
+  color: ${(props) => props.theme.text};
 `;

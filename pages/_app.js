@@ -1,5 +1,5 @@
 import "styles/global.css";
-import { theme } from "styles/theme";
+import { lightTheme } from "styles/theme";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import { store } from "features/store";
@@ -7,7 +7,7 @@ import { store } from "features/store";
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={lightTheme}>
         <Component {...pageProps} />
       </ThemeProvider>
     </Provider>

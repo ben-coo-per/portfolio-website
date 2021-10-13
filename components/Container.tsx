@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* min-height: 100vh; */
-  margin: 60px 120px;
-
+  min-height: 100vh;
+  padding: 100px;
+  background-color: ${(props) => props.theme.bg};
   @media (max-width: 768px) {
-    margin: 65px 10px;
+    padding: 65px 10px;
     justify-items: center;
   }
-
-  /* background-color: aquamarine; */
 `;
 
 export const DisplayGrid = styled.div`

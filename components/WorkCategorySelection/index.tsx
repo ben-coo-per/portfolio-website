@@ -18,7 +18,11 @@ export const WorkCategorySelectionRow = ({
   return (
     <Container>
       {allCategories.map((category) => (
-        <CategoryToggle category={category} key={category._id} />
+        <CategoryToggle
+          category={category}
+          key={category._id}
+          numCategories={allCategories.length}
+        />
       ))}
     </Container>
   );
