@@ -24,6 +24,7 @@ const LinksContainer = styled.div`
   right: 0;
   display: flex;
   flex-direction: row;
+  align-items: center;
   @media (max-width: 768px) {
     margin-top: 48px;
     flex-direction: column;
@@ -37,6 +38,10 @@ const LandingNavLink = styled(NavLink)`
   @media (max-width: 768px) {
     margin: 12px;
     font-size: 40px;
+  }
+
+  &:hover {
+    font-size: 24px;
   }
 `;
 

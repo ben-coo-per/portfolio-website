@@ -16,23 +16,33 @@ export const CardBase = styled.div`
   max-width: 400px;
   margin-top: 10px;
   border-radius: 8px;
-  background: linear-gradient(
-    159.71deg,
-    #e4e7ec -11.85%,
-    #f5f5f7 41.68%,
-    #d6d8df 98.67%
-  );
-  /* border: 1px solid #dadada; */
+
+  border: 2px solid #264653;
+  background: #fff;
+  color: ${(props) => props.theme.text};
+
   display: flex;
   flex-direction: column;
   align-items: stretch;
 
   column-count: 3;
   cursor: pointer;
+
+  transition: ease-in 0.19s;
+
+  .subtleText {
+    color: ${(props) => props.theme.subtleText};
+  }
+
   &:hover {
-    /* background-color: black; */
-    margin-top: -10px;
+    background-color: #264653;
+    margin-top: -0px;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+    color: #fff;
+  }
+
+  &:hover .subtleText {
+    color: #bfcad6;
   }
 `;
 
@@ -49,7 +59,7 @@ export const ProjectCard = ({ project }: { project: Partial<Project> }) => {
               />
             ))}
           </CategoriesRow>
-          <ProjectYears>{project.years}</ProjectYears>
+          <ProjectYears className="subtleText">{project.years}</ProjectYears>
         </UpperDetails>
         <MainImage
           src={project.mainImage}
@@ -58,7 +68,7 @@ export const ProjectCard = ({ project }: { project: Partial<Project> }) => {
 
         <LowerDetails>
           <ProjectTitle>{project.title}</ProjectTitle>
-          <ProjectRole>{project.role}</ProjectRole>
+          <ProjectRole className="subtleText">{project.role}</ProjectRole>
         </LowerDetails>
       </CardBase>
     </Link>

@@ -19,7 +19,7 @@ export default function Home({ project }: ProjectPageProps) {
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav backPath="/#my-work" />
+      <Nav />
       <Main>
         <Container>{JSON.stringify(project)}</Container>
       </Main>

@@ -15,28 +15,42 @@ export interface ToggleProps {
 }
 
 const Toggle = styled.button<ToggleProps>`
+  height: 28px;
+  width: min-content;
   margin: 4px;
+  padding: 4px;
+  border-radius: 3px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: min-content;
-  padding: 4px;
-  border-radius: 3px;
+
   text-align: center;
   font-family: "Raleway", "Open Sans", sans-serif;
   font-size: 16px;
   font-weight: 600;
   align-items: center;
   cursor: pointer;
+
   box-shadow: ${(props) =>
     props.isSelected ? `0px 0.5px 5px rgba(0, 0, 0, 0.25)` : `none`};
+
   color: ${(props) =>
     props.isSelected ? "#fff" : props.theme[props.color].dark};
+
   background-color: ${(props) =>
     props.isSelected
       ? props.theme[props.color]?.normal
       : props.theme[props.color]?.light};
+
   border: ${(props) => `1px solid ${props.theme[props.color].normal}`};
+
+  transition: ease-in 0.19s;
+
+  &:hover {
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+    margin-top: -2px;
+  }
 `;
 
 const CategoryName = styled.p`

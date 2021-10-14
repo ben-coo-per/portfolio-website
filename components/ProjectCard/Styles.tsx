@@ -6,7 +6,7 @@ export const ProjectYears = styled.p`
   font-weight: lighter;
   font-size: 18px;
   line-height: 100%;
-  color: #636363;
+  /* color: #636363; */
 `;
 
 export const ProjectTitle = styled.h1`

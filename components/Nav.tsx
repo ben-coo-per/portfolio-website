@@ -54,7 +54,7 @@ const NavLinks = styled.div`
 `;
 
 export const NavLink = styled(ScrollLink)`
-  margin: 0px 32px;
+  margin: 0px 24px;
   font-family: "Indie Flower", "Raleway", "Open Sans", sans-serif;
   font-size: 20px;
   text-decoration: none;
@@ -63,23 +63,27 @@ export const NavLink = styled(ScrollLink)`
   @media (max-width: 768px) {
     margin: 0px 16px;
   }
+
+  &:hover {
+    font-size: 30px;
+  }
+
+  transition: ease-in 0.2s;
 `;
 
 const NavIcon = styled(Image)`
   cursor: pointer;
 `;
 
-export const Nav = ({ backPath }: { backPath?: string }) => {
-  const [navbarIsHidden, setHideNavbar] = useState<boolean>(
-    backPath ? false : true
-  );
+export const Nav = () => {
+  const [navbarIsHidden, setHideNavbar] = useState<boolean>(true);
   const [isLightTheme, setThemeToLight] = useState<boolean>(true);
 
   return (
     <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
       <FixedContainer navbarIsHidden={navbarIsHidden}>
         <Container>
-          {backPath ? <BackButton backPath={backPath} /> : <Icon />}
+          <Icon />
           <NavLinks>
             <NavLink
               activeClass="active"
@@ -95,6 +99,7 @@ export const Nav = ({ backPath }: { backPath?: string }) => {
             >
               about me
             </NavLink>
+
             <NavLink
               activeClass="active"
               to="my-work"
