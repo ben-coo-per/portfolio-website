@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {}
+
+export const Container = styled.div<ContainerProps>`
+  position: relative;
+
   min-height: 100vh;
   padding: 100px;
+
   background-color: ${(props) => props.theme.bg};
   @media (max-width: 768px) {
     padding: 65px 10px;

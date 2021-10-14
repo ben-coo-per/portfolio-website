@@ -15,11 +15,7 @@ export interface Category {
   _id: string;
 }
 
-export type CategoryTitleOptions =
-  | "Product"
-  | "Digital"
-  | "Furniture"
-  | "Experimental";
+export type CategoryTitleOptions = keyof typeof Categories;
 
 export type Image = {
   asset: {
@@ -28,3 +24,10 @@ export type Image = {
   };
   _type: string;
 };
+
+export enum Categories {
+  Product,
+  Digital,
+  Furniture,
+  Experimental,
+}

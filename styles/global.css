@@ -6,3 +6,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: #fdfcff;
 }
+
+.active {
+  text-decoration: underline;
+}
+
+.hidden {
+  visibility: hidden;
+}

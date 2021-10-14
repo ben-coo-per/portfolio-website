@@ -7,7 +7,7 @@ export default function getCategoryColor(category: CategoryTitleOptions) {
   if (category.toLowerCase() === "digital") {
     return "blue";
   }
-  if (category.toLowerCase() === "experiment") {
+  if (category.toLowerCase() === "experimental") {
     return "green";
   }
   if (category.toLowerCase() === "furniture") {

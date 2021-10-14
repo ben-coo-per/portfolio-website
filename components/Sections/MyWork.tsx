@@ -5,6 +5,7 @@ import {
   Container,
   ProjectCard,
   DisplayGrid,
+  Nav,
 } from "components";
 
 import { Project, Category } from "features/projects";
@@ -40,20 +41,18 @@ export function MyWorkSection({ projects, categories }: MyWorkProps) {
             selectedCategoriesIdList.includes(category._id)
           );
         });
-  // : projects.filter((project) => {
-  //     return project.categories.some((category) =>
-  //       selectedCategoriesIdList.includes(category._id)
-  //     );
-  //   });
+
   return (
-    <Container>
-      <PageTitle>My Work</PageTitle>
-      <WorkCategorySelectionRow allCategories={categories} />
-      <DisplayGrid>
-        {projectsToRender.map((project) => (
-          <ProjectCard project={project} key={project._id} />
-        ))}
-      </DisplayGrid>
-    </Container>
+    <>
+      <Container id="my-work">
+        <PageTitle>My Work</PageTitle>
+        <WorkCategorySelectionRow />
+        <DisplayGrid>
+          {projectsToRender.map((project) => (
+            <ProjectCard project={project} key={project._id} />
+          ))}
+        </DisplayGrid>
+      </Container>
+    </>
   );
 }

@@ -1,28 +1,25 @@
 import styled from "styled-components";
-import { Category } from "features/projects";
+import { CategoryTitleOptions, Categories } from "features/projects";
 import { CategoryToggle } from "./CategorySelectionToggle";
 
 const Container = styled.div`
-  margin: 10px 0px;
+  position: sticky;
+  top: 85px;
+  padding-top: 4px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
+  background-color: ${(props) => props.theme.bg};
 `;
 
-interface CategoriesSelectionRowProps {
-  allCategories: Category[];
-}
+export const WorkCategorySelectionRow = () => {
+  // @ts-ignore
+  const allCategories: CategoryTitleOptions[] = Object.keys(Categories);
 
-export const WorkCategorySelectionRow = ({
-  allCategories,
-}: CategoriesSelectionRowProps) => {
   return (
     <Container>
       {allCategories.map((category) => (
-        <CategoryToggle
-          category={category}
-          key={category._id}
-          numCategories={allCategories.length}
-        />
+        <CategoryToggle category={category} key={category} />
       ))}
     </Container>
   );

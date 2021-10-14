@@ -35,9 +35,9 @@ export const myWorkSlice = createSlice({
     },
 
     // Selects ONLY the category provided
-    selectCategory: (state, action: PayloadAction<Category>) => {
+    selectCategory: (state, action: PayloadAction<CategoryTitleOptions>) => {
       state.selectedCategories = state.allCategories.filter(
-        (category) => category._id == action.payload._id
+        (category) => category.title == action.payload
       );
     },
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled, { ThemeProvider } from "styled-components";
 import { BodyText } from "../TextComponents";
-import { PageTitle, Container } from "components";
+import { PageTitle, Container, Nav } from "components";
 import { darkTheme } from "styles/theme";
 
 const Headshot = styled(Image)`
@@ -42,7 +42,7 @@ const AboutMeBodyText = styled(BodyText)`
 export function AboutMeSection() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <Container>
+      <Container id="about-me">
         <PageTitle>About Me</PageTitle>
 
         <ImageShadow>

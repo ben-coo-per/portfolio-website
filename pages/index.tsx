@@ -1,9 +1,8 @@
 import Head from "next/head";
-
 import styled from "styled-components";
 import {
-  Nav,
   Footer,
+  Nav,
   AboutMeSection,
   MyWorkSection,
   Landing,
@@ -12,7 +11,7 @@ import { sanityClient } from "sanity";
 import { Category, Project } from "features/projects";
 import { MyWorkProps } from "components/Sections/MyWork";
 
-const Main = styled.main`
+export const Main = styled.main`
   display: flex;
   flex-direction: column;
 `;

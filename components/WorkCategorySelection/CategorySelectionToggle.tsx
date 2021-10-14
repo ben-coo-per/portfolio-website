@@ -1,6 +1,5 @@
-// @ts-nocheck
 import styled from "styled-components";
-import { Category } from "features/projects";
+import { Category, CategoryTitleOptions } from "features/projects";
 import getCategoryColor from "utils/categoryColorMapper";
 import {
   addCategory,
@@ -11,7 +10,12 @@ import {
 } from "features/workSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const Toggle = styled.button`
+interface ToggleProps {
+  isSelected: boolean;
+  color: string;
+}
+
+const Toggle = styled.button<ToggleProps>`
   margin: 0px 4px;
 
   width: min-content;
@@ -36,15 +40,16 @@ const Toggle = styled.button`
 
 export const CategoryToggle = ({
   category,
-  numCategories,
 }: {
-  category: Category;
-  numCategories: number;
+  category: CategoryTitleOptions;
 }) => {
   const selectedCategories: Category[] = useSelector(selectSelectedCategories);
-  let isSelected = selectedCategories.includes(category);
+  const isSelected = selectedCategories
+    .map((category) => category.title)
+    .includes(category);
+
   const dispatch = useDispatch();
-  const color = getCategoryColor(category.title);
+  const color = getCategoryColor(category);
 
   function handleToggle() {
     if (isSelected) {
@@ -53,9 +58,13 @@ export const CategoryToggle = ({
       dispatch(selectCategory(category));
     }
   }
-  return (
-    <Toggle color={color} isSelected={isSelected} onClick={handleToggle}>
-      {category.title}
-    </Toggle>
-  );
+
+  if (color) {
+    return (
+      <Toggle color={color} isSelected={isSelected} onClick={handleToggle}>
+        {category}
+      </Toggle>
+    );
+  }
+  return <></>;
 };

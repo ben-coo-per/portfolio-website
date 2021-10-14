@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Project } from "features/projects";
-
+import Link from "next/link";
 import { MainImage } from "./MainImage";
 import { CategoryIndicator } from "./CategoryIndicator";
 import {
@@ -26,25 +26,30 @@ export const CardBase = styled.div`
 
 export const ProjectCard = ({ project }: { project: Partial<Project> }) => {
   return (
-    <CardBase>
-      <UpperDetails>
-        <CategoriesRow>
-          {project.categories?.map((category) => (
-            <CategoryIndicator category={category.title} key={category.title} />
-          ))}
-        </CategoriesRow>
-        <ProjectYears>{project.years}</ProjectYears>
-      </UpperDetails>
-      <MainImage
-        src={project.mainImage}
-        alt={`${project.title} display image`}
-      />
+    <Link href={`project/${project.slug}`}>
+      <CardBase>
+        <UpperDetails>
+          <CategoriesRow>
+            {project.categories?.map((category) => (
+              <CategoryIndicator
+                category={category.title}
+                key={category.title}
+              />
+            ))}
+          </CategoriesRow>
+          <ProjectYears>{project.years}</ProjectYears>
+        </UpperDetails>
+        <MainImage
+          src={project.mainImage}
+          alt={`${project.title} display image`}
+        />
 
-      <LowerDetails>
-        <ProjectTitle>{project.title}</ProjectTitle>
-        <ProjectRole>{project.role}</ProjectRole>
-      </LowerDetails>
-    </CardBase>
+        <LowerDetails>
+          <ProjectTitle>{project.title}</ProjectTitle>
+          <ProjectRole>{project.role}</ProjectRole>
+        </LowerDetails>
+      </CardBase>
+    </Link>
   );
 };
 

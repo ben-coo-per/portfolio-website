@@ -1,15 +1,24 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import Image from "next/image";
+import { forwardRef, useState } from "react";
+import { lightTheme, darkTheme } from "styles/theme";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
-import { forwardRef } from "react";
 
-const FixedContainer = styled.div`
+interface FixedContainerProps {
+  navbarIsHidden: boolean;
+}
+
+const FixedContainer = styled.div<FixedContainerProps>`
+  visibility: ${(props) => (props.navbarIsHidden ? "hidden" : "visible")};
+
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   width: 100vw;
 `;
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -19,8 +28,9 @@ const Container = styled.div`
   @media (max-width: 768px) {
     padding: 10px;
   }
-  height: 65.09px;
-  background: #fdfcff;
+  height: 65px;
+  background: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.text};
 `;
 
 const NavLinks = styled.div`
@@ -43,12 +53,13 @@ const NavLinks = styled.div`
   }
 `;
 
-const NavLink = styled.a`
+export const NavLink = styled(ScrollLink)`
   margin: 0px 32px;
   font-family: "Indie Flower", "Raleway", "Open Sans", sans-serif;
   font-size: 20px;
   text-decoration: none;
-  color: black;
+
+  cursor: pointer;
   @media (max-width: 768px) {
     margin: 0px 16px;
   }
@@ -58,31 +69,64 @@ const NavIcon = styled(Image)`
   cursor: pointer;
 `;
 
-export const Nav = (props: { backPath?: string }) => {
+export const Nav = ({ backPath }: { backPath?: string }) => {
+  const [navbarIsHidden, setHideNavbar] = useState<boolean>(
+    backPath ? false : true
+  );
+  const [isLightTheme, setThemeToLight] = useState<boolean>(true);
+
   return (
-    <FixedContainer>
-      <Container>
-        <Icon backPath={props.backPath} />
-        <NavLinks>
-          <NavLink href="/about-me">about me</NavLink>
-          <NavLink href="/my-work">my work</NavLink>
-        </NavLinks>
-      </Container>
-    </FixedContainer>
+    <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
+      <FixedContainer navbarIsHidden={navbarIsHidden}>
+        <Container>
+          {backPath ? <BackButton backPath={backPath} /> : <Icon />}
+          <NavLinks>
+            <NavLink
+              activeClass="active"
+              to="about-me"
+              spy={true}
+              smooth={true}
+              duration={500}
+              onSetActive={() => {
+                setHideNavbar(false);
+                setThemeToLight(false);
+              }}
+              onSetInactive={() => setHideNavbar(true)}
+            >
+              about me
+            </NavLink>
+            <NavLink
+              activeClass="active"
+              to="my-work"
+              spy={true}
+              smooth={true}
+              duration={500}
+              onSetActive={() => {
+                setHideNavbar(false);
+                setThemeToLight(true);
+              }}
+            >
+              my work
+            </NavLink>
+          </NavLinks>
+        </Container>
+      </FixedContainer>
+    </ThemeProvider>
   );
 };
 
-const Icon = forwardRef((props: { backPath?: string }, ref) => {
-  if (props.backPath) {
-    return (
-      <a href={props.backPath}>
-        <NavIcon src={"/svg/BackArrow.svg"} height={"20px"} width={"32px"} />
-      </a>
-    );
-  }
+const Icon = () => {
   return (
-    <a href={"/"}>
+    <NavLink activeClass="active" to="landing" smooth={true} duration={500}>
       <NavIcon src={"/logo.svg"} height={"45px"} width={"45px"} />
-    </a>
+    </NavLink>
   );
-});
+};
+
+const BackButton = ({ backPath }: { backPath: string }) => {
+  return (
+    <Link href={backPath}>
+      <NavIcon src={"/svg/BackArrow.svg"} height={"20px"} width={"32px"} />
+    </Link>
+  );
+};
