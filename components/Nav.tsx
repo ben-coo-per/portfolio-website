@@ -125,7 +125,7 @@ const Icon = () => {
 
 const BackButton = ({ backPath }: { backPath: string }) => {
   return (
-    <Link href={backPath}>
+    <Link href={backPath} passHref>
       <NavIcon src={"/svg/BackArrow.svg"} height={"20px"} width={"32px"} />
     </Link>
   );

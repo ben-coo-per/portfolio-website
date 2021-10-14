@@ -44,7 +44,12 @@ export const Landing = () => {
   return (
     <LandingContainer id="landing">
       <CenteredDiv>
-        <Image src="/landingImage.svg" width="370px" height="200px" />
+        <Image
+          src="/landingImage.svg"
+          width="370px"
+          height="200px"
+          alt="Illustation of me"
+        />
         <LinksContainer>
           <LandingNavLink
             activeClass="active"

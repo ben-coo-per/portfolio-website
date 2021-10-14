@@ -38,7 +38,7 @@ export const CardBase = styled.div`
 
 export const ProjectCard = ({ project }: { project: Partial<Project> }) => {
   return (
-    <Link href={`project/${project.slug}`}>
+    <Link href={`/project/${project.slug}`} passHref>
       <CardBase>
         <UpperDetails>
           <CategoriesRow>

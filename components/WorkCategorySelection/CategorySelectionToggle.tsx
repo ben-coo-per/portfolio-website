@@ -48,10 +48,8 @@ export const CategoryToggle = ({
 }: {
   category: CategoryTitleOptions;
 }) => {
-  const selectedCategories: Category[] = useSelector(selectSelectedCategories);
-  const isSelected = selectedCategories
-    .map((category) => category.title)
-    .includes(category);
+  const selectedCategories = useSelector(selectSelectedCategories);
+  const isSelected = selectedCategories.includes(category);
 
   const dispatch = useDispatch();
   const color = getCategoryColor(category);

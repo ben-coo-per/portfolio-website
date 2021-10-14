@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   PageTitle,
   WorkCategorySelectionRow,
@@ -10,26 +10,14 @@ import {
 
 import { Project, Category } from "features/projects";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  hydrateCategories,
-  selectSelectedCategories,
-} from "features/workSlice";
+import { selectSelectedCategories } from "features/workSlice";
 
 export interface MyWorkProps {
   projects: Project[];
-  categories: Category[];
 }
 
-export function MyWorkSection({ projects, categories }: MyWorkProps) {
+export function MyWorkSection({ projects }: MyWorkProps) {
   const selectedCategories = useSelector(selectSelectedCategories);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(hydrateCategories(categories));
-  }, []);
-
-  const selectedCategoriesIdList = selectedCategories.map(
-    (category) => category._id
-  );
 
   // Filter out any projects that are not in the selected categories
   let projectsToRender: Project[] =
@@ -38,7 +26,7 @@ export function MyWorkSection({ projects, categories }: MyWorkProps) {
       : // selectedCategories.length > 1?
         projects.filter((project) => {
           return project.categories.some((category) =>
-            selectedCategoriesIdList.includes(category._id)
+            selectedCategories.includes(category.title)
           );
         });
 

@@ -18,7 +18,7 @@ export const Main = styled.main`
 
 interface HomeProps extends MyWorkProps {}
 
-export default function Home({ projects, categories }: HomeProps) {
+export default function Home({ projects }: HomeProps) {
   return (
     <>
       <Head>
@@ -31,16 +31,13 @@ export default function Home({ projects, categories }: HomeProps) {
       <Main>
         <Landing />
         <AboutMeSection />
-        <MyWorkSection projects={projects} categories={categories} />
+        <MyWorkSection projects={projects} />
       </Main>
     </>
   );
 }
 
 export async function getServerSideProps() {
-  const categories: Category[] = await sanityClient.fetch(
-    `*[_type == "category"] | order(title desc)`
-  );
   const projects: Project[] =
     await sanityClient.fetch(`*[_type  == "project" ]{    
     title, 
@@ -55,7 +52,7 @@ export async function getServerSideProps() {
     _id, 
   }| order(years desc)`);
 
-  const props: MyWorkProps = { projects, categories };
+  const props: MyWorkProps = { projects };
 
   return { props };
 }
