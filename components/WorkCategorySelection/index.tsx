@@ -8,6 +8,7 @@ const Container = styled.div`
   padding-top: 4px;
   margin-bottom: 20px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   background-color: ${(props) => props.theme.bg};
 `;

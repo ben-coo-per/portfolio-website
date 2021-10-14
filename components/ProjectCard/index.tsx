@@ -14,14 +14,26 @@ import {
 
 export const CardBase = styled.div`
   max-width: 400px;
-  border-radius: 1px;
-  background-color: #ffffff;
-  border: 1px solid #dadada;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: linear-gradient(
+    159.71deg,
+    #e4e7ec -11.85%,
+    #f5f5f7 41.68%,
+    #d6d8df 98.67%
+  );
+  /* border: 1px solid #dadada; */
   display: flex;
   flex-direction: column;
   align-items: stretch;
 
   column-count: 3;
+  cursor: pointer;
+  &:hover {
+    /* background-color: black; */
+    margin-top: -10px;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  }
 `;
 
 export const ProjectCard = ({ project }: { project: Partial<Project> }) => {

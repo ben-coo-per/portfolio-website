@@ -1,23 +1,24 @@
 import styled from "styled-components";
 import { Category, CategoryTitleOptions } from "features/projects";
 import getCategoryColor from "utils/categoryColorMapper";
+import { CategoryIcon } from "../assets/CategoryIcons";
 import {
-  addCategory,
-  removeCategory,
   selectSelectedCategories,
   selectCategory,
   unSelectCategory,
 } from "features/workSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-interface ToggleProps {
+export interface ToggleProps {
   isSelected: boolean;
   color: string;
 }
 
 const Toggle = styled.button<ToggleProps>`
-  margin: 0px 4px;
-
+  margin: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: min-content;
   padding: 4px;
   border-radius: 3px;
@@ -36,6 +37,10 @@ const Toggle = styled.button<ToggleProps>`
       ? props.theme[props.color]?.normal
       : props.theme[props.color]?.light};
   border: ${(props) => `1px solid ${props.theme[props.color].normal}`};
+`;
+
+const CategoryName = styled.p`
+  margin: 0px 4px;
 `;
 
 export const CategoryToggle = ({
@@ -62,7 +67,12 @@ export const CategoryToggle = ({
   if (color) {
     return (
       <Toggle color={color} isSelected={isSelected} onClick={handleToggle}>
-        {category}
+        <CategoryIcon
+          color={color}
+          isSelected={isSelected}
+          category={category}
+        />
+        <CategoryName>{category}</CategoryName>
       </Toggle>
     );
   }

@@ -3,9 +3,7 @@ import styled from "styled-components";
 
 const StyledImage = styled.img`
   border-radius: 1px;
-  /* border: 1px solid #dadada; */
   margin: 4px 0px;
-  background-color: #fdfcff;
   width: 100%;
 `;
 
