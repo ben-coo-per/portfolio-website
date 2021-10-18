@@ -20,26 +20,13 @@ const Wrapper = styled.div`
   margin: 32px 0px;
 `;
 
-const Label = styled.p`
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 10px;
-  line-height: 12px;
-
-  display: flex;
-  align-items: center;
-
-  color: ${(props) => props.theme.subtleText};
-`;
-
 const Title = styled.p<{ isBack?: boolean }>`
   font-family: Raleway;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
 
-  margin-left: ${(props) => (props.isBack ? "6px" : "0px")};
+  margin-left: 6px;
   margin-right: ${(props) => (props.isBack ? "0px" : "6px")};
 `;
 
