@@ -50,6 +50,9 @@ const StyledImage = styled.img`
   border-radius: 1px;
   background-color: #fff;
   width: 30px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const ActionsBox = styled.div`
@@ -83,7 +86,7 @@ export const NextProjectButton = ({ id }: NextProjectButtonProps) => {
                   alt={`${title} display image`}
                 />
                 <Title>{title}</Title>
-                <img src="/svg/ForwardArrow.svg" height="15px" width="24px" />
+                <img src="/svg/forwardArrow.svg" height="15px" width="24px" />
               </StyledButton>
             </a>
           </Link>
