@@ -96,7 +96,7 @@ export const NextProjectButton = ({ id }: NextProjectButtonProps) => {
                   alt={`${title} display image`}
                 />
                 <Title>{title}</Title>
-                <img src="/svg/forwardArrow.svg" height="15px" width="24px" />
+                <img src="/svg/ForwardArrow.svg" height="15px" width="24px" />
               </StyledButton>
             </a>
           </Link>
@@ -118,7 +118,7 @@ const BackButton = () => {
       <Link href="/#my-work" passHref>
         <a style={{ textDecoration: "none" }}>
           <StyledButton>
-            <img src="/svg/backArrow.svg" height="15px" width="24px" />
+            <img src="/svg/BackArrow.svg" height="15px" width="24px" />
             <Title isBack>Back to projects</Title>
           </StyledButton>
         </a>
