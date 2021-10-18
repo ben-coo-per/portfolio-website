@@ -1,16 +1,85 @@
 import { Project } from "features/projects";
-import { sanityClient } from "sanity";
+import { sanityClient, urlFor } from "sanity";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { Main } from "../index";
+const BlockContent = require("@sanity/block-content-to-react");
 
-import { Nav, Container } from "components";
+import {
+  BackNav,
+  Container,
+  PageTitle,
+  BodyText,
+  Header1,
+  Header2,
+} from "components";
+import styled from "styled-components";
+import { useWindowSize } from "utils/customHooks";
 
 interface ProjectPageProps {
-  project?: Project;
+  project: Project | null;
 }
+
+interface ContainerProps {
+  backgroundImageUrl?: string;
+}
+
+const ProjectContainer = styled.div<ContainerProps>`
+  position: relative;
+
+  min-height: 100vh;
+  padding: 100px;
+
+  background-color: ${(props) => props.theme.bg};
+  @media (max-width: 768px) {
+    padding: 70px 10px;
+
+    justify-items: center;
+  }
+
+  background: ${(props) =>
+    props.backgroundImageUrl ? `url(${props.backgroundImageUrl})` : "none"};
+`;
+
 export default function Home({ project }: ProjectPageProps) {
-  console.log(project);
+  let imageWidth = Math.floor(useWindowSize().width * 0.75);
+
+  if (project) {
+    return (
+      <>
+        <Head>
+          <title>Ben Cooper</title>
+          <meta name="description" content="Welcome to my website" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <BackNav />
+        <Main>
+          <ProjectContainer
+            backgroundImageUrl={urlFor(project.backgroundImage)}
+          >
+            <PageTitle>{project?.title}</PageTitle>
+            {/* {project.body.map((textStyle) => (
+              <TextStyle style={textStyle.style} key={textStyle._key}>
+                {textStyle.children
+                  ? textStyle?.children.map((child: any) => (
+                      <p key={child._key}>{child.text}</p>
+                    ))
+                  : ""}
+              </TextStyle>
+            ))} */}
+            <BlockContent
+              blocks={project.body}
+              // serializers={{ marks: { Header2 } }}
+              imageOptions={{ fit: "clip", w: imageWidth }}
+              projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+              dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+            />
+          </ProjectContainer>
+        </Main>
+      </>
+    );
+  }
   return (
     <>
       <Head>
@@ -19,9 +88,13 @@ export default function Home({ project }: ProjectPageProps) {
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Nav />
+      <BackNav />
       <Main>
-        <Container>{JSON.stringify(project)}</Container>
+        <Container>
+          <PageTitle> Oops!</PageTitle>
+
+          <Header1>This project is missing</Header1>
+        </Container>
       </Main>
     </>
   );
@@ -34,6 +107,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       role,
       mainImage,
       backgroundImage,
+      body,
       categories[]->{
         _id,
         title,
@@ -48,3 +122,15 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   return { props: { project: null } };
 };
+
+// interface TextStyleProps {
+//   style: "h2" | "normal";
+//   children?: React.ReactNode;
+// }
+
+// const TextStyle = ({ style, children }: TextStyleProps) => {
+//   if (style === "h2") {
+//     return <Header2>{children}</Header2>;
+//   }
+//   return <BodyText>{children}</BodyText>;
+// };

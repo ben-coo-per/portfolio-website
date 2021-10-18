@@ -47,9 +47,11 @@ const Toggle = styled.button<ToggleProps>`
 
   transition: ease-in 0.19s;
 
-  &:hover {
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
-    margin-top: -2px;
+  @media (min-width: 768px) {
+    &:hover {
+      box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+      margin-top: -2px;
+    }
   }
 `;
 

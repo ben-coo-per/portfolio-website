@@ -128,10 +128,26 @@ const Icon = () => {
   );
 };
 
-const BackButton = ({ backPath }: { backPath: string }) => {
+const BackButton = ({ backPath }: { backPath?: string }) => {
   return (
-    <Link href={backPath} passHref>
-      <NavIcon src={"/svg/BackArrow.svg"} height={"20px"} width={"32px"} />
+    <Link href={backPath ? backPath : "/#my-work"} passHref>
+      <a>
+        <NavIcon src="/svg/BackArrow.svg" height="20px" width="32px" />
+      </a>
     </Link>
+  );
+};
+
+export const BackNav = ({ backPath }: { backPath?: string }) => {
+  const [isLightTheme, setThemeToLight] = useState<boolean>(true);
+
+  return (
+    <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
+      <FixedContainer navbarIsHidden={false}>
+        <Container>
+          <BackButton backPath={backPath} />
+        </Container>
+      </FixedContainer>
+    </ThemeProvider>
   );
 };
