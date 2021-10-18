@@ -57,7 +57,7 @@ export default function Home({ project }: ProjectPageProps) {
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <BackNav />
+        <BackNav link={project.linkToProject} />
         <Main>
           <ProjectContainer
             backgroundImageUrl={urlFor(project.backgroundImage)}
@@ -106,6 +106,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       mainImage,
       backgroundImage,
       body,
+      linkToProject,
       categories[]->{
         _id,
         title,

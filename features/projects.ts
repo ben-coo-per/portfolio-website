@@ -8,6 +8,7 @@ export interface Project {
   slug: string;
   years: string;
   _id: string;
+  linkToProject?: string;
 }
 
 export interface Category {

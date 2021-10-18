@@ -1,8 +1,9 @@
 import styled, { ThemeProvider } from "styled-components";
 import Image from "next/image";
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import { lightTheme, darkTheme } from "styles/theme";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { ExternalSiteButton } from "./ExternalLinkButton";
 import Link from "next/link";
 
 interface FixedContainerProps {
@@ -138,7 +139,13 @@ const BackButton = ({ backPath }: { backPath?: string }) => {
   );
 };
 
-export const BackNav = ({ backPath }: { backPath?: string }) => {
+export const BackNav = ({
+  backPath,
+  link,
+}: {
+  backPath?: string;
+  link?: string;
+}) => {
   const [isLightTheme, setThemeToLight] = useState<boolean>(true);
 
   return (
@@ -146,6 +153,7 @@ export const BackNav = ({ backPath }: { backPath?: string }) => {
       <FixedContainer navbarIsHidden={false}>
         <Container>
           <BackButton backPath={backPath} />
+          {link && <ExternalSiteButton link={link} />}
         </Container>
       </FixedContainer>
     </ThemeProvider>
