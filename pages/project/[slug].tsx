@@ -15,6 +15,7 @@ import {
 } from "components";
 import styled from "styled-components";
 import { useWindowSize } from "utils/customHooks";
+import { NextProjectButton } from "components/NextProjectButton";
 
 interface ProjectPageProps {
   project: Project | null;
@@ -48,8 +49,11 @@ export default function Home({ project }: ProjectPageProps) {
     return (
       <>
         <Head>
-          <title>Ben Cooper</title>
-          <meta name="description" content="Welcome to my website" />
+          <title>{`${project.title} | Ben Cooper`}</title>
+          <meta
+            name="description"
+            content={`${project.title} from ${project.years} `}
+          />
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
@@ -59,15 +63,6 @@ export default function Home({ project }: ProjectPageProps) {
             backgroundImageUrl={urlFor(project.backgroundImage)}
           >
             <PageTitle>{project?.title}</PageTitle>
-            {/* {project.body.map((textStyle) => (
-              <TextStyle style={textStyle.style} key={textStyle._key}>
-                {textStyle.children
-                  ? textStyle?.children.map((child: any) => (
-                      <p key={child._key}>{child.text}</p>
-                    ))
-                  : ""}
-              </TextStyle>
-            ))} */}
             <BlockContent
               blocks={project.body}
               // serializers={{ marks: { Header2 } }}
@@ -75,11 +70,14 @@ export default function Home({ project }: ProjectPageProps) {
               projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
               dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
             />
+
+            <NextProjectButton id={project._id} />
           </ProjectContainer>
         </Main>
       </>
     );
   }
+
   return (
     <>
       <Head>
@@ -122,15 +120,3 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   return { props: { project: null } };
 };
-
-// interface TextStyleProps {
-//   style: "h2" | "normal";
-//   children?: React.ReactNode;
-// }
-
-// const TextStyle = ({ style, children }: TextStyleProps) => {
-//   if (style === "h2") {
-//     return <Header2>{children}</Header2>;
-//   }
-//   return <BodyText>{children}</BodyText>;
-// };
