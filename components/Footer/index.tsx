@@ -2,11 +2,16 @@ import styled, { ThemeProvider } from "styled-components";
 import { darkTheme } from "styles/theme";
 import { GetInTouchButton } from "components/buttons";
 import { SocialLinks } from "./SocialLinks";
-// import { getBrooklynTemperature } from "utils/getCurrentTemp";
+import Image from "next/image";
+import {
+  getWeather,
+  useGetCurrentBrooklynWeatherQuery,
+} from "features/weather/weatherSlice";
+import { useSelector } from "react-redux";
 
 const Container = styled.footer`
   background-color: ${(props) => props.theme.bg};
-  max-height: 300px;
+
   padding: 20px 100px;
   display: flex;
   @media (max-width: 768px) {
@@ -15,6 +20,9 @@ const Container = styled.footer`
 `;
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   max-width: 825px;
 `;
 
@@ -39,12 +47,55 @@ const SecondaryText = styled.h2`
 `;
 
 export const Footer = () => {
+  const location = { lat: 40.692532, lon: -73.990997 };
+  const weather = useSelector(getWeather);
+  const { isSuccess, isLoading } = useGetCurrentBrooklynWeatherQuery(location);
+
+  if (isSuccess) {
+    return (
+      <ThemeProvider theme={darkTheme}>
+        <Container>
+          <Wrapper>
+            <Image
+              height={100}
+              width={100}
+              src={`http://openweathermap.org/img/wn/${weather.weather.icon}@4x.png`}
+            />
+
+            <MainText>
+              {`It’s ${
+                weather.temperature
+              }˚F and ${weather.weather.main.toLowerCase()} here in Brooklyn, NY`}
+            </MainText>
+            <SecondaryText>And I’m eager to meet you</SecondaryText>
+            <GetInTouchButton>Get In Touch</GetInTouchButton>
+            <SocialLinks />
+          </Wrapper>
+        </Container>
+      </ThemeProvider>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <ThemeProvider theme={darkTheme}>
+        <Container>
+          <Wrapper>
+            <MainText>{`It’s --˚F and ------ here in Brooklyn, NY`}</MainText>
+            <SecondaryText>And I’m eager to meet you</SecondaryText>
+            <GetInTouchButton>Get In Touch</GetInTouchButton>
+            <SocialLinks />
+          </Wrapper>
+        </Container>
+      </ThemeProvider>
+    );
+  }
+
   return (
     <ThemeProvider theme={darkTheme}>
       <Container>
         <Wrapper>
-          {/* <MainText>It’s 57˚F here in Brooklyn, NY</MainText>
-          <SecondaryText>And I’m eager to meet you</SecondaryText> */}
+          <SecondaryText>I’m eager to meet you</SecondaryText>
           <GetInTouchButton>Get In Touch</GetInTouchButton>
           <SocialLinks />
         </Wrapper>

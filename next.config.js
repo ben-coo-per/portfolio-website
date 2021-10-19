@@ -14,6 +14,6 @@ module.exports = {
     NEXT_PUBLIC_WEATHER_API_KEY: "0e0f2d09e7b3b16c76be2d2574ebed95",
   },
   images: {
-    domains: ["cdn.sanity.io"],
+    domains: ["cdn.sanity.io", "openweathermap.org"],
   },
 };
