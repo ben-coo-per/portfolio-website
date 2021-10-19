@@ -5,14 +5,7 @@ import Head from "next/head";
 import { Main } from "../index";
 const BlockContent = require("@sanity/block-content-to-react");
 
-import {
-  BackNav,
-  Container,
-  PageTitle,
-  BodyText,
-  Header1,
-  Header2,
-} from "components";
+import { BackNav, Container, PageTitle, Header1, Footer } from "components";
 import styled from "styled-components";
 import { useWindowSize } from "utils/customHooks";
 import { NextProjectButton } from "components/buttons";
@@ -74,6 +67,7 @@ export default function Home({ project }: ProjectPageProps) {
             <NextProjectButton id={project._id} />
           </ProjectContainer>
         </Main>
+        <Footer />
       </>
     );
   }

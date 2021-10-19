@@ -32,8 +32,8 @@ export default function Home({ projects }: HomeProps) {
         <Landing />
         <AboutMeSection />
         <MyWorkSection projects={projects} />
-        <Footer />
       </Main>
+      <Footer />
     </>
   );
 }
