@@ -15,7 +15,7 @@ import {
 } from "components";
 import styled from "styled-components";
 import { useWindowSize } from "utils/customHooks";
-import { NextProjectButton } from "components/NextProjectButton";
+import { NextProjectButton } from "components/buttons";
 
 interface ProjectPageProps {
   project: Project | null;

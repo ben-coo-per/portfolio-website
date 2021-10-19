@@ -24,9 +24,10 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Indie+Flower&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Quantico:wght@700&family=Indie+Flower&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400&display=swap"
             rel="stylesheet"
           />
+
           {this.props.styleTags}
         </Head>
         <body>

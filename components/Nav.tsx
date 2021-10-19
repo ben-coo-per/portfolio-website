@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { lightTheme, darkTheme } from "styles/theme";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
-import { ExternalSiteButton } from "./ExternalLinkButton";
+import { ExternalSiteButton } from "./buttons";
 import Link from "next/link";
 
 interface FixedContainerProps {
