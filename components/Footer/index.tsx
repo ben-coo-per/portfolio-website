@@ -2,7 +2,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { darkTheme } from "styles/theme";
 import { GetInTouchButton } from "components/buttons";
 import { SocialLinks } from "./SocialLinks";
-import { getBrooklynTemperature } from "utils/getCurrentTemp";
+// import { getBrooklynTemperature } from "utils/getCurrentTemp";
 
 const Container = styled.footer`
   background-color: ${(props) => props.theme.bg};
@@ -39,7 +39,6 @@ const SecondaryText = styled.h2`
 `;
 
 export const Footer = () => {
-  getBrooklynTemperature();
   return (
     <ThemeProvider theme={darkTheme}>
       <Container>
