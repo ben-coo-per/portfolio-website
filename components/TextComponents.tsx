@@ -6,7 +6,7 @@ interface TextProps {
 }
 
 export const PageTitle = styled.h1`
-  font-family: "Raleway", sans-serif;
+  font-family: Quantico, "Raleway", sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 72px;
