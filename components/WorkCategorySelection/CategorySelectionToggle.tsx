@@ -50,7 +50,7 @@ const Toggle = styled.button<ToggleProps>`
   @media (min-width: 768px) {
     &:hover {
       box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
-      margin-top: -2px;
+      margin-top: -0.5px;
     }
   }
 `;
