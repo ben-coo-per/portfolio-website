@@ -35,8 +35,11 @@ const ProjectContainer = styled.div<ContainerProps>`
     props.backgroundImageUrl ? `url(${props.backgroundImageUrl})` : "none"};
 `;
 
+const StyledBlockContent = styled(BlockContent)``;
+
 export default function Home({ project }: ProjectPageProps) {
   let imageWidth = Math.floor(useWindowSize().width * 0.75);
+  let imageHeight = Math.floor(useWindowSize().height * 0.75);
 
   if (project) {
     return (
@@ -56,10 +59,10 @@ export default function Home({ project }: ProjectPageProps) {
             backgroundImageUrl={urlFor(project.backgroundImage)}
           >
             <PageTitle>{project?.title}</PageTitle>
-            <BlockContent
+            <StyledBlockContent
               blocks={project.body}
               // serializers={{ marks: { Header2 } }}
-              imageOptions={{ fit: "clip", w: imageWidth }}
+              imageOptions={{ fit: "clip", h: imageHeight, w: imageWidth }}
               projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
               dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
             />

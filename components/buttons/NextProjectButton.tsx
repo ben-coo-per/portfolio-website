@@ -41,9 +41,16 @@ const StyledButton = styled.button`
 
   /* Card Shadow */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 6px;
 
   cursor: pointer;
+
+  &:hover {
+    /* background-color: #264653; */
+    /* color: #fff; */
+    margin-top: -0px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  }
 `;
 
 const StyledImage = styled.img`
