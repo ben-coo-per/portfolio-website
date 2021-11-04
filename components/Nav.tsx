@@ -66,7 +66,7 @@ export const NavLink = styled(ScrollLink)`
   }
 
   &:hover {
-    font-size: 30px;
+    text-decoration: underline;
   }
 
   transition: ease-in 0.2s;

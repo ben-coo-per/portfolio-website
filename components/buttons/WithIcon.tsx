@@ -6,11 +6,9 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 4px 10px;
-  background: ${(props) => props.theme.orange.dark};
+  background: ${(props) => props.theme.bg};
   border: none;
 
-  /* Card Shadow */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 
   cursor: pointer;

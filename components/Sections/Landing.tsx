@@ -41,7 +41,7 @@ const LandingNavLink = styled(NavLink)`
   }
 
   &:hover {
-    font-size: 24px;
+    text-decoration: underline;
   }
 `;
 
