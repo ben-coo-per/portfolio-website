@@ -55,6 +55,23 @@ const BuiltWithText = styled.p`
   color: ${(props) => props.theme.subtleText};
 `;
 
+function weatherMapper(weatherInput: string) {
+  if (weatherInput === "thunderstorm" || weatherInput === "rain") {
+    return "stormy";
+  }
+  if (weatherInput === "drizzle") {
+    return "drizzling";
+  }
+  if (weatherInput === "snow") {
+    return "snowing";
+  }
+  if (weatherInput === "clouds") {
+    return "cloudy";
+  }
+
+  return weatherInput;
+}
+
 export const Footer = () => {
   const location = { lat: 40.692532, lon: -73.990997 };
   const weather = useSelector(getWeather);
@@ -72,9 +89,9 @@ export const Footer = () => {
             />
 
             <MainText>
-              {`It’s ${
-                weather.temperature
-              }˚F and ${weather.weather.main.toLowerCase()} here in Brooklyn, NY`}
+              {`It’s ${weather.temperature}˚F and ${weatherMapper(
+                weather.weather.main.toLowerCase()
+              )} here in Brooklyn, NY`}
             </MainText>
             <SecondaryText>And I’m eager to meet you</SecondaryText>
             <GetInTouchButton>Get In Touch</GetInTouchButton>
