@@ -46,6 +46,15 @@ const SecondaryText = styled.h2`
   color: ${(props) => props.theme.subtleText};
 `;
 
+const BuiltWithText = styled.p`
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+
+  color: ${(props) => props.theme.subtleText};
+`;
+
 export const Footer = () => {
   const location = { lat: 40.692532, lon: -73.990997 };
   const weather = useSelector(getWeather);
@@ -70,6 +79,9 @@ export const Footer = () => {
             <SecondaryText>And I’m eager to meet you</SecondaryText>
             <GetInTouchButton>Get In Touch</GetInTouchButton>
             <SocialLinks />
+            <BuiltWithText>
+              Built with Next.js, styled-components, Sanity.io, and Redux
+            </BuiltWithText>
           </Wrapper>
         </Container>
       </ThemeProvider>
@@ -85,6 +97,9 @@ export const Footer = () => {
             <SecondaryText>And I’m eager to meet you</SecondaryText>
             <GetInTouchButton>Get In Touch</GetInTouchButton>
             <SocialLinks />
+            <BuiltWithText>
+              Built with Next.js, styled-components, Sanity.io, and Redux
+            </BuiltWithText>
           </Wrapper>
         </Container>
       </ThemeProvider>
@@ -98,6 +113,9 @@ export const Footer = () => {
           <SecondaryText>I’m eager to meet you</SecondaryText>
           <GetInTouchButton>Get In Touch</GetInTouchButton>
           <SocialLinks />
+          <BuiltWithText>
+            Built with Next.js, styled-components, Sanity.io, and Redux
+          </BuiltWithText>
         </Wrapper>
       </Container>
     </ThemeProvider>
