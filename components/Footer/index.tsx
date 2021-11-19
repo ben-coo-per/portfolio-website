@@ -10,7 +10,27 @@ import {
 import { useSelector } from "react-redux";
 
 const Container = styled.footer`
-  background-color: ${(props) => props.theme.bg};
+  background: linear-gradient(
+    69deg,
+    ${(props) => props.theme.bgGradient[0]},
+    ${(props) => props.theme.bgGradient[1]},
+    ${(props) => props.theme.bgGradient[2]},
+    ${(props) => props.theme.bgGradient[3]},
+    ${(props) => props.theme.bgGradient[4]}
+  );
+  background-size: 300% 300%;
+  animation: gradient-animation 20s ease infinite;
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
   padding: 20px 100px;
   display: flex;

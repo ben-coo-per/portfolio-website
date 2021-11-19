@@ -13,7 +13,7 @@ import {
 } from "./Styles";
 
 export const CardBase = styled.div`
-  max-width: 400px;
+  max-width: 320px;
   margin-top: 10px;
   border-radius: 8px;
 
@@ -33,9 +33,28 @@ export const CardBase = styled.div`
   .subtleText {
     color: ${(props) => props.theme.subtleText};
   }
-
   &:hover {
-    background-color: #264653;
+    background: linear-gradient(
+      69deg,
+      #1a2f38,
+      #264653,
+      #335e70,
+      #1a2f38,
+      #23526c
+    );
+    background-size: 300% 300%;
+    animation: gradient-animation 8s ease infinite;
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
     margin-top: -0px;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
     color: #fff;

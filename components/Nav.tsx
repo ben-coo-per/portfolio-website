@@ -25,12 +25,14 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 64px;
+  padding: 10px 10px;
   @media (max-width: 768px) {
     padding: 10px;
+    background: ${(props) => props.theme.bg};
   }
   height: 65px;
-  background: ${(props) => props.theme.bg};
+  /* background: ${(props) => props.theme.bg}; */
+
   color: ${(props) => props.theme.text};
 `;
 

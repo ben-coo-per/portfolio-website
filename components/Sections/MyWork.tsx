@@ -5,7 +5,6 @@ import {
   Container,
   ProjectCard,
   DisplayGrid,
-  Nav,
 } from "components";
 
 import { Project, Category } from "features/projects";

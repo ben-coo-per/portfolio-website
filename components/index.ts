@@ -4,7 +4,7 @@ export { Landing } from "./Sections/Landing";
 
 export { Nav, BackNav } from "./Nav";
 export { Footer } from "./Footer";
-export { Container, DisplayGrid } from "./Container";
+export { Container, DisplayGrid, AboutMeGrid } from "./Container";
 
 export { PageTitle, BodyText, Header1, Header2, Quote } from "./TextComponents";
 
