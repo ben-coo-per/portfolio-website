@@ -21,7 +21,7 @@ export const SocialLinks = () => {
       <a href="https://www.linkedin.com/in/ben-a-cooper/">
         <FaLinkedinIn color="white" />
       </a>
-      <a href="https://www.instagram.com/bencooper_96/">
+      <a href="https://www.instagram.com/ben.coo.per/">
         <FaInstagram color="white" />
       </a>
       <a href="https://dribbble.com/ben-cooper/about">
