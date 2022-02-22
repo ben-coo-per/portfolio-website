@@ -8,8 +8,8 @@ const Headshot = styled(Image)`
   border-radius: 10px;
 `;
 
-const ImageShadow = styled.div`
-  filter: drop-shadow(0px 5.26582px 13.1646px rgba(0, 0, 0, 0.25));
+const ImageContainer = styled.div`
+  /* filter: drop-shadow(0px 5.26582px 13.1646px rgba(0, 0, 0, 0.25)); */
   width: 100%;
   float: left;
   padding: 10px;
@@ -42,7 +42,7 @@ export function AboutMeSection() {
       <Container id="about-me">
         <PageTitle>About Me</PageTitle>
         <AboutMeGrid>
-          <ImageShadow>
+          <ImageContainer>
             <Headshot
               src="/headshot.jpeg"
               width="512px"
@@ -51,7 +51,7 @@ export function AboutMeSection() {
               placeholder="blur"
               blurDataURL="/headshot.jpeg"
             />
-          </ImageShadow>
+          </ImageContainer>
           <AboutMeBodyText>
             I am an engineer by training but a designer & developer by practice.
             <br />

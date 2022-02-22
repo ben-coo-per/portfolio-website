@@ -88,6 +88,26 @@ function weatherMapper(weatherInput: string) {
   if (weatherInput === "clouds") {
     return "cloudy";
   }
+  if (weatherInput === "mist") {
+    return "misty";
+  }
+  if (weatherInput === "fog") {
+    return "foggy";
+  }
+  if (weatherInput === "haze") {
+    return "hazy";
+  }
+
+  if (
+    weatherInput === "smoke" ||
+    weatherInput === "dust" ||
+    weatherInput === "sand" ||
+    weatherInput === "ash" ||
+    weatherInput === "squall" ||
+    weatherInput === "tornado"
+  ) {
+    return `the world might be ending (${weatherInput})`;
+  }
 
   return weatherInput;
 }
