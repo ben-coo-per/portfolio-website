@@ -135,7 +135,7 @@ const BackButton = ({ backPath }: { backPath?: string }) => {
   return (
     <Link href={backPath ? backPath : "/#my-work"} passHref>
       <a>
-        <NavIcon src="/svg/BackArrow.svg" height="20px" width="32px" />
+        <NavIcon src="/svg/BackArrow.svg" height="24px" width="100px" />
       </a>
     </Link>
   );

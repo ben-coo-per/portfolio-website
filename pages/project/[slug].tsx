@@ -22,13 +22,21 @@ const ProjectContainer = styled.div<ContainerProps>`
   position: relative;
 
   min-height: 100vh;
-  padding: 100px;
+  padding: 100px 150px;
 
   background-color: ${(props) => props.theme.bg};
-  @media (max-width: 768px) {
-    padding: 70px 10px;
-
+  @media (max-width: ${(props) => props.theme.breakpoints.lg}) {
+    padding: 100px 80px;
     justify-items: center;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+    padding: 65px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
   }
 
   background: ${(props) =>
