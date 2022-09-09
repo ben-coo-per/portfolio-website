@@ -46,7 +46,7 @@ export function AboutMeSection() {
 					My dream job is to build everything from furniture to climate
 					solutions alongside people that inspire me.
 					<br />
-					<br /> I like reading when it rains and riding my bike when it
+					<br /> I like watching movies when it rains and riding my bike when it
 					doesn’t.
 				</AboutMeBodyText>
 			</Container>
