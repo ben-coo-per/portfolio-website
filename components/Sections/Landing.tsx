@@ -70,7 +70,7 @@ export const Landing = () => {
 		<LandingContainer id="landing">
 			<CenteredDiv>
 				<Image
-					src="/landingImage.svg"
+					src="/landingImage.png"
 					width="370px"
 					height="200px"
 					alt="Illustation of me"

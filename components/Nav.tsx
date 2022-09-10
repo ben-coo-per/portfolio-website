@@ -125,7 +125,7 @@ export const Nav = () => {
 const Icon = () => {
 	return (
 		<NavLink activeClass="active" to="landing" smooth={true} duration={500}>
-			<NavIcon src={"/logo.svg"} height={"45px"} width={"45px"} />
+			<NavIcon src={"/logo.png"} height={"45px"} width={"45px"} />
 		</NavLink>
 	);
 };
