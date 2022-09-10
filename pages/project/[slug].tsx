@@ -1,17 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import { Project } from "features/projects";
 import { sanityClient, urlFor } from "sanity";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import { Main } from "../index";
-const BlockContent = require("@sanity/block-content-to-react");
 import { PortableText } from "@portabletext/react";
 
 import { BackNav, Container, PageTitle, Header1, Footer } from "components";
 import styled from "styled-components";
 import { useWindowSize } from "utils/customHooks";
 import { NextProjectButton } from "components/buttons";
-import { getImageDimensions } from "@sanity/asset-utils";
-import urlBuilder from "@sanity/image-url";
 interface ProjectPageProps {
 	project: Project | null;
 }
@@ -54,10 +52,8 @@ const ImageContainer = styled.div`
 `;
 
 const ImageComponent = ({ value }: { value: any }) => {
-	console.log(value);
 	let imageWidth = Math.floor(useWindowSize().width * 0.75);
 	return (
-		// eslint-disable-next-line @next/next/no-img-element
 		<ImageContainer>
 			<img
 				src={urlFor(value).width(imageWidth).fit("clip").url()}
