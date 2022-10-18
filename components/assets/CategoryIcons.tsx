@@ -21,8 +21,8 @@ export const CategoryIcon = (props: IconProps) => {
 	if (props.category == "Digital") {
 		return <Digital {...props} />;
 	}
-	if (props.category == "Furniture") {
-		return <Furniture {...props} />;
+	if (props.category == "Physical") {
+		return <Physical {...props} />;
 	}
 	if (props.category == "Experimental") {
 		return <Experimental {...props} />;
@@ -65,7 +65,7 @@ const Digital = ({ color, isSelected }: IconProps) => {
 	);
 };
 
-const Furniture = ({ color, isSelected }: IconProps) => {
+const Physical = ({ color, isSelected }: IconProps) => {
 	return (
 		<Svg color={color} isSelected={isSelected}>
 			<path
