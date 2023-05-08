@@ -9,7 +9,7 @@ const StyledButton = styled.button`
 	background: ${(props) => props.theme.bg};
 	border: none;
 
-	border-radius: 10px;
+	border-radius: 1px;
 
 	cursor: pointer;
 `;

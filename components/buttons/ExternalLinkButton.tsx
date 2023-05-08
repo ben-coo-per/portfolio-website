@@ -16,7 +16,7 @@ const StyledButton = styled.a`
 	background: #fff;
 	color: ${(props) => props.theme.text};
 	border: 1.5px solid #264653;
-	border-radius: 6px;
+	border-radius: 1px;
 
 	cursor: pointer;
 

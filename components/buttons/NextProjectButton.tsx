@@ -31,7 +31,7 @@ const StyledButton = styled.button`
 
 	/* Card Shadow */
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-	border-radius: 6px;
+	border-radius: 1px;
 
 	cursor: pointer;
 
