@@ -14,7 +14,6 @@ import {
 
 export const CardBase = styled.div`
 	max-width: 350px;
-	margin-top: 10px;
 	border-radius: 1.5px;
 
 	border: 2px solid #264653;
@@ -34,6 +33,7 @@ export const CardBase = styled.div`
 		color: ${(props) => props.theme.subtleText};
 	}
 	&:hover {
+		transform: translateY(-10px);
 		background: linear-gradient(
 			69deg,
 			#1a2f38,
@@ -55,7 +55,6 @@ export const CardBase = styled.div`
 				background-position: 0% 50%;
 			}
 		}
-		margin-top: -0px;
 		box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 		color: #fff;
 	}
