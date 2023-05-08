@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
 	}
 
 	@media (max-width: ${(props) => props.theme.breakpoints.sm}) {
-		padding: 65px 10px;
+		padding: 20px 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -43,6 +43,7 @@ export const Container = styled.div<ContainerProps>`
 			background-position: 0% 50%;
 		}
 	}
+	border-bottom: 1px solid #000;
 `;
 
 export const DisplayGrid = styled.div`

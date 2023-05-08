@@ -1,18 +1,46 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: #fdfcff;
+	padding: 0;
+	margin: 0;
+	font-family: "PPAgrandir-wide-regular", -apple-system, BlinkMacSystemFont,
+		Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+		Helvetica Neue, sans-serif;
+	font-size: 16px;
+	line-height: 1.75;
+	background: #fdfcff;
 }
 
 .active {
-  /* text-decoration: underline; */
-  font-weight: bold;
-  font-size: 24px;
+	/* text-decoration: underline; */
+	font-weight: bold;
+	font-size: 24px;
 }
 
 .hidden {
-  visibility: hidden;
+	visibility: hidden;
+}
+
+@font-face {
+	font-family: "PPAgrandir";
+	src: url("/fonts/PPAgrandir-GrandLight.otf") format("opentype");
+}
+@font-face {
+	font-family: "PPAgrandir-wide-regular";
+	src: url("/fonts/PPAgrandir-WideLight.otf") format("opentype");
+}
+@font-face {
+	font-family: "PPRadar";
+	src: url("/fonts/PPRader-Thin.otf") format("opentype");
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
