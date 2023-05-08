@@ -15,12 +15,15 @@ export const PageTitle = styled.h1`
 	margin: 0px;
 	margin-bottom: 20px;
 	height: min-content;
+	width: 100%;
+	padding-top: 20px;
 
 	grid-column: 1 / span 12;
 
 	color: ${(props) => props.theme.subtleText};
 	@media (max-width: ${(props) => props.theme.breakpoints.xs}) {
-		font-size: 64px;
+		text-align: left;
+		font-size: 4rem;
 	}
 `;
 

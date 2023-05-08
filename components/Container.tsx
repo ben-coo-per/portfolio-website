@@ -6,7 +6,7 @@ export const Container = styled.div<ContainerProps>`
 	position: relative;
 
 	min-height: 100vh;
-	padding: 100px 150px;
+	padding: 3rem;
 
 	@media (max-width: ${(props) => props.theme.breakpoints.lg}) {
 		padding: 100px 80px;
@@ -43,11 +43,17 @@ export const Container = styled.div<ContainerProps>`
 			background-position: 0% 50%;
 		}
 	}
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #264653;
 `;
 
 export const DisplayGrid = styled.div`
 	display: grid;
 	grid-gap: 1rem;
-	grid-template-columns: repeat(auto-fit, 270px);
+	grid-template-columns: repeat(auto-fit, 300px);
+
+	@media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 `;

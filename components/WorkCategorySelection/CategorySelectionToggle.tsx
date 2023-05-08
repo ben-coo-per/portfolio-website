@@ -19,7 +19,7 @@ const Toggle = styled.button<ToggleProps>`
 	width: min-content;
 	margin: 4px;
 	padding: 4px;
-	border-radius: 3px;
+	border-radius: 1px;
 
 	display: flex;
 	flex-direction: row;
@@ -56,7 +56,7 @@ const Toggle = styled.button<ToggleProps>`
 `;
 
 const CategoryName = styled.p`
-	margin: 0px 4px;
+	margin: 0px 8px;
 `;
 
 export const CategoryToggle = ({

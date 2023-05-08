@@ -21,7 +21,9 @@ const AboutMeBodyText = styled(BodyText)`
 export function AboutMeSection() {
 	return (
 		<Container id="about-me">
-			<PageTitle>About Me</PageTitle>
+			<PageTitle>
+				About <br /> Me
+			</PageTitle>
 			<AboutMeBodyText>
 				I am an engineer by training but a designer & developer by practice.
 				<br />

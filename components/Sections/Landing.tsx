@@ -35,7 +35,7 @@ const LandingContainer = styled.div`
 	@media (max-width: 768px) {
 		padding: 0;
 	}
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #264653;
 `;
 
 const CenteredDiv = styled.div`

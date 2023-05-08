@@ -37,7 +37,9 @@ export function MyWorkSection({ projects }: MyWorkProps) {
 	return (
 		<>
 			<Container id="my-work">
-				<PageTitle>My Work</PageTitle>
+				<PageTitle>
+					My <br></br> Work
+				</PageTitle>
 				<WorkCategorySelectionRow />
 				<DisplayGrid>
 					{projectsToRender.map((project) => (

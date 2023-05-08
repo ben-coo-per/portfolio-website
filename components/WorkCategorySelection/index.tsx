@@ -7,10 +7,6 @@ const Container = styled.div`
 	margin-bottom: 20px;
 	display: flex;
 	flex-flow: row wrap;
-
-	@media (max-width: ${(props) => props.theme.breakpoints.sm}) {
-		justify-content: center;
-	}
 `;
 
 export const WorkCategorySelectionRow = () => {
