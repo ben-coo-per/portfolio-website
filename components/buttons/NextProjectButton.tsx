@@ -4,25 +4,14 @@ import Link from "next/link";
 import { selectFilteredProjects } from "features/workSlice";
 import { useSelector } from "react-redux";
 import Image from "next/image";
+import { Header2 } from "components";
 
 interface NextProjectButtonProps {
 	id: string;
 }
 
-const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	padding: 0px;
-
-	flex: none;
-	order: 14;
-	flex-grow: 0;
-	margin: 32px 0px;
-`;
-
 const Title = styled.p<{ isBack?: boolean }>`
-	font-family: Raleway;
+	font-family: "PPAgrandir", "Raleway", "Open Sans", sans-serif;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 14px;
@@ -65,12 +54,15 @@ const StyledImage = styled.img`
 
 const ActionsBox = styled.div`
 	border-top: 1px solid ${(props) => props.theme.subtleText};
-	margin: 32px 0px;
+	border-bottom: 1px solid ${(props) => props.theme.subtleText};
+	margin-top: 32px;
+	margin-bottom: 16px;
 
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
+	gap: 8px;
+	padding: 16px 0px;
 `;
 
 export const NextProjectButton = ({ id }: NextProjectButtonProps) => {
@@ -83,26 +75,21 @@ export const NextProjectButton = ({ id }: NextProjectButtonProps) => {
 		const slug = projects[nextProjectIndex].slug;
 		return (
 			<ActionsBox>
-				<BackButton />
-				<Wrapper>
-					<Link href={`${slug}`} passHref>
-						<a style={{ textDecoration: "none" }}>
-							<StyledButton>
-								<StyledImage
-									src={urlFor(image)}
-									alt={`${title} display image`}
-								/>
-								<Title>{title}</Title>
-								<Image
-									src="/svg/forwardArrow.svg"
-									height="15px"
-									width="24px"
-									alt="forward arrow"
-								/>
-							</StyledButton>
-						</a>
-					</Link>
-				</Wrapper>
+				<Header2>Next Project</Header2>
+				<Link href={`${slug}`} passHref>
+					<a style={{ textDecoration: "none" }}>
+						<StyledButton>
+							<StyledImage src={urlFor(image)} alt={`${title} display image`} />
+							<Title>{title}</Title>
+							<Image
+								src="/svg/forwardArrow.svg"
+								height="15px"
+								width="24px"
+								alt="forward arrow"
+							/>
+						</StyledButton>
+					</a>
+				</Link>
 			</ActionsBox>
 		);
 	}
@@ -116,20 +103,18 @@ export const NextProjectButton = ({ id }: NextProjectButtonProps) => {
 
 const BackButton = () => {
 	return (
-		<Wrapper>
-			<Link href="/#my-work" passHref>
-				<a style={{ textDecoration: "none" }}>
-					<StyledButton>
-						<Image
-							src="/svg/BackArrow.svg"
-							height="15px"
-							width="24px"
-							alt="backwards arrow"
-						/>
-						<Title isBack>Back to projects</Title>
-					</StyledButton>
-				</a>
-			</Link>
-		</Wrapper>
+		<Link href="/#my-work" passHref>
+			<a style={{ textDecoration: "none" }}>
+				<StyledButton>
+					<Image
+						src="/svg/BackArrow.svg"
+						height="15px"
+						width="24px"
+						alt="backwards arrow"
+					/>
+					<Title isBack>Back to projects</Title>
+				</StyledButton>
+			</a>
+		</Link>
 	);
 };

@@ -56,8 +56,7 @@ const NavLinks = styled.div`
 `;
 
 export const NavLink = styled(ScrollLink)`
-	margin: 0px 24px;
-	font-family: "Indie Flower", "Raleway", "Open Sans", sans-serif;
+	font-family: "PPAgrandir", "Raleway", "Open Sans", sans-serif;
 	font-size: 20px;
 	text-decoration: none;
 

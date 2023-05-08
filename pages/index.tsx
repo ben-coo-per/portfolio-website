@@ -1,12 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import {
-	Footer,
-	Nav,
-	AboutMeSection,
-	MyWorkSection,
-	Landing,
-} from "components";
+import { Footer, AboutMeSection, MyWorkSection, Landing } from "components";
 import { sanityClient } from "sanity";
 import { Category, Project } from "features/projects";
 import { MyWorkProps } from "components/Sections/MyWork";
@@ -27,7 +21,6 @@ export default function Home({ projects }: HomeProps) {
 				<link rel="manifest" href="/manifest.json" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Nav />
 			<Main>
 				<Landing />
 				<AboutMeSection />

@@ -1,9 +1,11 @@
-import Image from "next/image";
-import { NavLink } from "components/Nav";
+import { LandingBackgroundImage } from "components/assets/LandingBackgroundImage";
+import { Link as ScrollLink } from "react-scroll";
 import styled from "styled-components";
 
 const LandingContainer = styled.div`
-	height: 100vh;
+	overflow-x: hidden;
+	height: 100%;
+	flex: 1;
 	background: linear-gradient(
 		69deg,
 		${(props) => props.theme.bgGradient[0]},
@@ -29,52 +31,108 @@ const LandingContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 3rem;
+	@media (max-width: 768px) {
+		padding: 0;
+	}
+	border-bottom: 1px solid #000;
 `;
 
 const CenteredDiv = styled.div`
+	min-height: 90vh;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	position: relative;
-	text-align: center;
-`;
 
-const LinksContainer = styled.div`
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+	position: relative;
+	text-align: left;
 	@media (max-width: 768px) {
-		margin-top: 48px;
-		flex-direction: column;
-		justify-items: center;
-		position: inherit;
+		min-height: 100vh;
+	}
+	z-index: 0;
+
+	span {
+		position: relative;
+		z-index: 2;
+		animation: fadeIn 3.5s ease;
+		font-family: "PPAgrandir", "Raleway", "Open Sans", sans-serif;
+		font-size: 12rem;
+		@media (max-width: 768px) {
+			font-size: 4rem;
+		}
+		margin-left: 1rem;
+
+		line-height: 90%;
+		color: #fff;
+
+		&:nth-child(1) {
+			@media (max-width: 768px) {
+				margin-top: 2rem;
+			}
+		}
+
+		&:nth-child(2) {
+			animation: fadeIn 4s ease;
+		}
 	}
 `;
 
-const LandingNavLink = styled(NavLink)`
-	margin: 0px 14px;
+const LinksContainer = styled.div`
+	z-index: 2;
+	font-family: "PPAgrandir", "Raleway", "Open Sans", sans-serif;
+	color: #fff;
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+	display: flex;
+	flex-direction: row;
+
+	gap: 1.4rem;
+
+	text-align: left;
+
 	@media (max-width: 768px) {
-		margin: 12px;
-		font-size: 40px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		justify-items: center;
+	}
+`;
+
+export const LandingNavLink = styled(ScrollLink)`
+	animation: fadeIn 4.5s ease;
+	font-family: "PPAgrandir", "Raleway", "Open Sans", sans-serif;
+	font-size: 28px;
+	text-decoration: none;
+
+	cursor: pointer;
+	@media (max-width: 768px) {
+		margin: 0px 16px;
 	}
 
 	&:hover {
 		text-decoration: underline;
 	}
+
+	transition: ease-in 0.2s;
+`;
+
+const WebsiteVersionText = styled.p`
+	font-family: "PPRadar", monospace;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1.5rem 3rem;
+	text-align: right;
 `;
 
 export const Landing = () => {
 	return (
 		<LandingContainer id="landing">
+			<WebsiteVersionText>v6.0</WebsiteVersionText>
 			<CenteredDiv>
-				<Image
-					src="/landingImage.png"
-					width="370px"
-					height="200px"
-					alt="Illustation of me"
-				/>
+				<span>Ben</span>
+				<span>Cooper</span>
 				<LinksContainer>
 					<LandingNavLink
 						activeClass="active"
@@ -83,7 +141,7 @@ export const Landing = () => {
 						smooth={true}
 						duration={500}
 					>
-						about me
+						about
 					</LandingNavLink>
 					<LandingNavLink
 						activeClass="active"
@@ -92,9 +150,10 @@ export const Landing = () => {
 						smooth={true}
 						duration={500}
 					>
-						my work
+						projects
 					</LandingNavLink>
 				</LinksContainer>
+				<LandingBackgroundImage />
 			</CenteredDiv>
 		</LandingContainer>
 	);
