@@ -57,9 +57,13 @@ const CenteredDiv = styled.div`
 		animation: fadeIn 3.5s ease;
 		font-family: "PPAgrandir", "Raleway", "Open Sans", sans-serif;
 		font-size: 12rem;
+		@media (max-width: 1065px) {
+			font-size: 8rem;
+		}
 		@media (max-width: 768px) {
 			font-size: 4rem;
 		}
+
 		margin-left: 1rem;
 
 		line-height: 90%;
@@ -92,7 +96,6 @@ const LinksContainer = styled.div`
 	text-align: left;
 
 	@media (max-width: 768px) {
-		left: 0;
 		width: 100%;
 		text-align: center;
 		justify-items: center;
@@ -106,9 +109,6 @@ export const LandingNavLink = styled(ScrollLink)`
 	text-decoration: none;
 
 	cursor: pointer;
-	@media (max-width: 768px) {
-		margin: 0px 16px;
-	}
 
 	&:hover {
 		text-decoration: underline;
