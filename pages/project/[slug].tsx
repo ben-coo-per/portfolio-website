@@ -10,6 +10,7 @@ import { BackNav, Container, PageTitle, Header1, Footer } from "components";
 import styled from "styled-components";
 import { useWindowSize } from "utils/customHooks";
 import { NextProjectButton } from "components/buttons";
+import { Fragment } from "react";
 interface ProjectPageProps {
 	project: Project | null;
 }
@@ -49,6 +50,26 @@ const ImageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+`;
+
+const FigmaContainer = styled.div`
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+
+	@media (max-width: ${(props) => props.theme.breakpoints.sm}) {
+		width: 100%;
+		padding-bottom: 150%;
+	}
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 `;
 
 const ImageComponent = ({ value }: { value: any }) => {
@@ -91,6 +112,11 @@ export default function Home({ project }: ProjectPageProps) {
 								},
 							}}
 						/>
+						{project.figmaLink && (
+							<FigmaContainer
+								dangerouslySetInnerHTML={{ __html: project.figmaLink }}
+							/>
+						)}
 						<NextProjectButton id={project._id} />
 					</ProjectContainer>
 				</Main>
@@ -127,6 +153,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       mainImage,
       backgroundImage,
       body,
+	  figmaLink,
       linkToProject,
       categories[]->{
         _id,

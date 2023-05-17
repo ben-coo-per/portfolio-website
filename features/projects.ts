@@ -1,4 +1,5 @@
 export interface Project {
+	figmaLink: string;
 	backgroundImage: Image;
 	title: string;
 	role: string;
