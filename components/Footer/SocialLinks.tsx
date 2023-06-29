@@ -39,7 +39,7 @@ export const SocialLinks = () => {
 			<a href="https://www.instagram.com/ben.coo.per/">
 				<FaInstagram color="white" />
 			</a>
-			<a href="https://twitter.com/cooperben83">
+			<a href="https://twitter.com/ben_coo_per">
 				<FaTwitter color="white" />
 			</a>
 			<a href="https://www.linkedin.com/in/ben-a-cooper/">
